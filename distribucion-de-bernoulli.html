@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Distribución de Bernoulli</title>    
+    <style>
+        body {
+            background-image: url('img/background.jpg'); /* Cambia 'background.jpg' por la imagen que desees usar como fondo */
+            background-size: cover; /* Ajusta el tamaño de la imagen de fondo para cubrir toda la página */
+            text-align: center;
+            padding-top: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            margin: 0 auto;
+            width: 50%;
+        }
+        label {
+            color: #333;
+            display: block;
+        }
+        input {
+            padding: 5px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        p {
+            color: #333;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        #resultadoBernoulli {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <style>
+        .container {
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+
+    <h1>Calculadora de Distribución de Bernoulli</h1>
+    <p>Esta calculadora te permite determinar la probabilidad de un evento exitoso en una secuencia de ensayos independientes, siguiendo la Distribución de Bernoulli. Para utilizarla, sigue estos pasos:</p>
+    <p>1. Probabilidad de Éxito (p): Ingresa la probabilidad de que ocurra el evento deseado en un solo intento. Debe ser un número entre 0 y 1. Por ejemplo, si la probabilidad de éxito es del 0.3, introdúcelo como 0.3.</p>
+    <p>2. Número de Intentos (n): Introduce la cantidad de intentos o ensayos que se realizarán. Debe ser un número entero positivo.</p>
+    <p>3. Haz clic en el botón "Calcular".</p><br>
+    <form id="bernoulliCalculator">
+        <label for="probExito">Probabilidad de Éxito (p):</label>
+        <input type="number" id="probExito" min="0" max="1" step="0.01" required>
+        <br>
+        <label for="numIntentos">Número de Intentos (n):</label>
+        <input type="number" id="numIntentos" min="0" required>
+        <br>
+        <button type="button" onclick="calcularBernoulli()">Calcular</button>
+    </form>
+
+    <p>La probabilidad P(X = 1) es: <span id="resultadoBernoulli"></span></p>
+
+    <script>
+        function calcularBernoulli() {
+            var probExito = parseFloat(document.getElementById("probExito").value);
+            var numIntentos = parseInt(document.getElementById("numIntentos").value);
+
+            var resultado = Math.pow(probExito, numIntentos) * Math.pow(1 - probExito, 1 - numIntentos);
+            document.getElementById("resultadoBernoulli").textContent = resultado.toFixed(4);
+        }
+    </script>
+</body>
+</html>

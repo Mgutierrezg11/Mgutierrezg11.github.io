@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Final Estadística</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    
+    <header class="header" id="inicio">
+        <img class="hamburguer" src="img/hamburguesa.svg" alt="">
+        <nav class="menu-navegacion">
+            <a href="#inicio">Inicio</a>
+            <a href="#servicio">Contenido</a>
+            <a href="#galeria">Selección de contenido</a>
+            <a href="#footer">Información</a>
+        </nav>
+        <div class="contenedor head">
+            <h1 class="titulo">Proyecto Final Estadística</h1>
+            <p class="copy"><b>Universidad Mariano Gálvez de Guatemala</b></p>
+        </div>
+    </header>
+    <main>
+        <section class="services contenedor" id="servicio">
+            <h2 class="subtitulo">Contenido disponible:</h2>
+            <div class="contenedor-servicio">
+                <div class="service">
+                    <h3 class="n-service"><span class="number">1</span>Distribución de Bernoulli</h3>
+                    <p>La distribución de Bernoulli es un modelo probabilístico que describe un experimento con dos resultados posibles, como éxito o fracaso, 1 o 0.<br>Se usa para eventos con un solo ensayo o prueba, donde la probabilidad de éxito (p) y fracaso (1-p) son constantes. Es la base de distribuciones más complejas como la binomial y la distribución geométrica.</p>
+                </div>
+                <div class="service">
+                    <h3 class="n-service"><span class="number">2</span>Teorema de Bayes</h3>
+                    <p>El Teorema de Bayes es un principio fundamental en la teoría de la probabilidad que describe cómo actualizar nuestras creencias sobre un evento basado en nueva evidencia.<br>Permite revisar la probabilidad de que ocurra un evento dado el conocimiento previo y nueva información relevante. Es especialmente útil en la toma de decisiones, aprendizaje automático y la inferencia estadística.</p>
+                </div>
+                <div class="service">
+                    <h3 class="n-service"><span class="number">3</span>Distribución de Poisson</h3>
+                    <p>La distribución de Poisson se usa para modelar la probabilidad de ocurrencia de un número de eventos en un intervalo de tiempo o espacio específico.<br>Es útil cuando se estudian sucesos raros pero con una tasa de ocurrencia constante, como accidentes, llamadas a un centro de atención telefónica o llegadas a un mostrador de servicio. Se caracteriza por eventos independientes que ocurren a una tasa promedio constante.</p>
+                </div>
+                <div class="service">
+                    <h3 class="n-service"><span class="number">4</span>Distribución Normal</h3>
+                    <p>La distribución normal, también conocida como la campana de Gauss, es un modelo estadístico que describe la distribución de muchos fenómenos naturales. Se caracteriza por su forma de campana simétrica alrededor de su media, donde la mayoría de los valores se concentran cerca de la media, siguiendo un patrón predecible.<br>Es ampliamente utilizada en estadística y ciencia para representar fenómenos como la altura de la población, puntuaciones de pruebas y errores de medición.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contenedor" id="expertos">
+
+            <section class="experts">
+                <div class="cont-expert">
+                    <img src="img/bernulli.jpg" alt="">
+                    <h3 class="n-expert">Distribución de Bernulli</h3>
+                </div>
+                <div class="cont-expert">
+                    <img src="img/bayes.jpg" alt="">
+                    <h3 class="n-expert">Teorema de bayes</h3>
+                </div>
+                <div class="cont-expert">
+                    <img src="img/poisson.png" alt="">
+                    <h3 class="n-expert">Distribución de Poisson</h3>
+                </div>
+                <div class="cont-expert">
+                    <img src="img/normal.jpg" alt="">
+                    <h3 class="n-expert">Distribución Normal</h3>
+                </div>
+            </section>
+        </section>
+
+        <section class="gallery" id="galeria">
+            <div class="contenedor">
+                <h2 class="subtitulo">Seleccine una de las siguientes calculadoras:</h2>
+                <div class="contenedor-galeria">
+                    <div class="boton-cuadrado">
+                        <a href="distribucion-de-bernoulli.html">Distribución de Bernoulli</a>
+                    </div>
+                    <div class="boton-cuadrado">
+                        <a href="teorema-de-bayes.html">Teorema de Bayes</a>
+                    </div>
+                    <div class="boton-cuadrado">
+                        <a href="distribucion-de-poisson.html">Distribución de Poisson</a>
+                    </div>
+                    <div class="boton-cuadrado">
+                        <a href="distribucion-normal.html">Distribución Normal</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="imagen-light">
+            <img src="img/close.svg" alt="" class="close">
+            <img src="" alt="" class="agregar-imagen">
+        </div>
+
+    </main>
+
+    <footer id="footer">
+        <div class="contenedor footer-content">
+            <div class="contact-us">
+                <h2 class="brand">Grupo 2 - sección C</h2><br>
+                <p>Cruso: Estadística I, Plan sábado<br><br>André Gil Moreno - Carné: 9989-22-13694<br>Willy Alonzo Navas - Carné: 9989-22-13303<br>Manolo Gutiérrez - Carné: 9989-22-15353</p><br>
+            </div>
+            <div class="line"></div>
+        </div>
+    </footer>
+    <script src="js/menu.js"></script>
+    <script src="js/lightbox.js"></script>
+</body>
+</html>

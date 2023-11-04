@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora del Teorema de Bayes</title>
+    <style>
+        body {
+            background-image: url('img/background.jpg'); /* Cambia 'background.jpg' por la imagen que desees usar como fondo */
+            background-size: cover; /* Ajusta el tamaño de la imagen de fondo para cubrir toda la página */
+            text-align: center;
+            padding-top: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            margin: 0 auto;
+            width: 50%;
+        }
+        label {
+            color: #333;
+            display: block;
+        }
+        input {
+            padding: 5px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        p {
+            color: #333;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        #resultadoBayes {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora del Teorema de Bayes</h1>
+    <p>La calculadora del Teorema de Bayes te permite calcular la probabilidad condicional de que ocurra un evento A dado que ha ocurrido un evento B. Este teorema es fundamental en la teoría de la probabilidad y se utiliza para actualizar las probabilidades a la luz de nueva evidencia. Sigue estos pasos para utilizar esta herramienta:</p>
+    <p>1. Probabilidad de A (P(A)): Ingresa la probabilidad de que ocurra el evento A.</p>
+    <p>2. Probabilidad de B dado A (P(B|A)): Introduce la probabilidad de que ocurra el evento B dado que ya ha ocurrido el evento A.</p>
+    <p>3. Probabilidad de B (P(B)): Ingresa la probabilidad de que ocurra el evento B.</p>
+    <p>4. Haz clic en el botón "Calcular".</p><br>
+    <form id="bayesCalculator">
+        <label for="probA">Probabilidad de A (P(A)):</label>
+        <input type="number" id="probA" min="0" max="1" step="0.01" required>
+        <br>
+        <label for="probBA">Probabilidad de B dado A (P(B|A)):</label>
+        <input type="number" id="probBA" min="0" max="1" step="0.01" required>
+        <br>
+        <label for="probB">Probabilidad de B (P(B)):</label>
+        <input type="number" id="probB" min="0" max="1" step="0.01" required>
+        <br>
+        <button type="button" onclick="calcularBayes()">Calcular</button>
+    </form>
+
+    <p>La probabilidad P(A|B) es: <span id="resultadoBayes"></span></p>
+
+    <script>
+        function calcularBayes() {
+            var probA = parseFloat(document.getElementById("probA").value);
+            var probBA = parseFloat(document.getElementById("probBA").value);
+            var probB = parseFloat(document.getElementById("probB").value);
+
+            var resultado = (probBA * probA) / probB;
+            document.getElementById("resultadoBayes").textContent = resultado.toFixed(4);
+        }
+    </script>
+</body>
+</html>
