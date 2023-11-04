@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Distribución de Bernoulli</title>
+    <title>Calculadora de Distribución Normal</title>
     <style>
         body {
             background-image: url('img/background.jpg'); /* Cambia 'background.jpg' por la imagen que desees usar como fondo */
@@ -50,33 +50,59 @@
             font-weight: bold;
             margin-top: 10px;
         }
-        #resultadoBernoulli {
+        #resultadoNormal {
             color: #007BFF;
         }
     </style>
 </head>
 <body>
-    <h1>Calculadora de Distribución de Bernoulli</h1>
-
-    <form id="bernoulliCalculator">
-        <label for="probExito">Probabilidad de Éxito (p):</label>
-        <input type="number" id="probExito" min="0" max="1" step="0.01" required>
+    <h1>Calculadora de Distribución Normal</h1>
+    <p>La calculadora de Distribución Normal te permite calcular la probabilidad acumulada de que una variable aleatoria siga una distribución normal con una media (μ) y una desviación estándar (σ) dadas. Sigue estos pasos para utilizar esta herramienta:</p>
+    <p>1. Media (μ): Ingresa el valor medio de la distribución normal.</p>
+    <p>2. Desviación Estándar (σ): Introduce la desviación estándar, que representa la medida de la dispersión de los datos alrededor de la media.</p>
+    <p>3. Valor a Evaluar (X): Ingresa el valor específico para el cual deseas calcular la probabilidad acumulada hasta ese punto.</p>
+    <p>4. Haz clic en el botón "Calcular".</p><br>
+    <form id="normalCalculator">
+        <label for="media">Media (μ):</label>
+        <input type="number" id="media" step="0.01" required>
         <br>
-        <label for="numIntentos">Número de Intentos (n):</label>
-        <input type="number" id="numIntentos" min="0" required>
+        <label for="desviacion">Desviación Estándar (σ):</label>
+        <input type="number" id="desviacion" step="0.01" required>
         <br>
-        <button type="button" onclick="calcularBernoulli()">Calcular</button>
+        <label for="x">Valor a Evaluar (X):</label>
+        <input type="number" id="x" required>
+        <br>
+        <button type="button" onclick="calcularNormal()">Calcular</button>
     </form>
 
-    <p>La probabilidad P(X = 1) es: <span id="resultadoBernoulli"></span></p>
+    <p>La probabilidad P(X &le; x) es: <span id="resultadoNormal"></span></p>
 
     <script>
-        function calcularBernoulli() {
-            var probExito = parseFloat(document.getElementById("probExito").value);
-            var numIntentos = parseInt(document.getElementById("numIntentos").value);
+        function calcularNormal() {
+            var media = parseFloat(document.getElementById("media").value);
+            var desviacion = parseFloat(document.getElementById("desviacion").value);
+            var x = parseFloat(document.getElementById("x").value);
 
-            var resultado = Math.pow(probExito, numIntentos) * Math.pow(1 - probExito, 1 - numIntentos);
-            document.getElementById("resultadoBernoulli").textContent = resultado.toFixed(4);
+            var z = (x - media) / desviacion;
+            var resultado = 0.5 * (1 + erf(z / Math.sqrt(2))); // Cambio en esta línea
+            document.getElementById("resultadoNormal").textContent = resultado.toFixed(4);
+        }
+
+        function erf(x) { // Función erf agregada
+            var a1 =  0.254829592;
+            var a2 = -0.284496736;
+            var a3 =  1.421413741;
+            var a4 = -1.453152027;
+            var a5 =  1.061405429;
+            var p  =  0.3275911;
+
+            var sign = (x < 0) ? -1 : 1;
+            x = Math.abs(x);
+
+            var t = 1.0 / (1.0 + p * x);
+            var y = (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t;
+
+            return sign * (1 - y * Math.exp(-x * x));
         }
     </script>
 </body>
